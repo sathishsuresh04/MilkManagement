@@ -1,12 +1,8 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Options;
 using MilkManagement.Core.Configuration;
-using MilkManagement.Core.Models;
-using MilkManagement.Core.Repositories;
+using MilkManagement.Core.Entities;
 using MilkManagement.Core.Services;
-using MilkManagement.Web.Models;
 
 namespace MilkManagement.Web.Controllers
 {
@@ -29,8 +25,8 @@ namespace MilkManagement.Web.Controllers
         /// <returns></returns>
         public async Task<Product> Index()
         {
-           
-            return  await _productService.GetProductById(Guid.NewGuid());
+            return null;
+            //  return  await _productService.GetProductById(Guid.NewGuid());
         }
     }
 }
