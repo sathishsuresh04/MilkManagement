@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace MilkManagement.Web.ViewModels
+﻿namespace MilkManagement.Web.ViewModels
 {
-    public class CategoryViewModel:BaseViewModel
+	public class CategoryViewModel:BaseViewModel
     {
         public string Name { get; set; }
         public string Description { get; set; }

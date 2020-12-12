@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 
 namespace MilkManagement.Web.Models
 {
-    public class MockUserRepository : IUserRepository
+	public class MockUserRepository : IUserRepository
     {
         private readonly IList<User> _userList;
 

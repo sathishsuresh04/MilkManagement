@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 
 namespace MilkManagement.Web
 {
-    public static class ConfigurationExtension
+	public static class ConfigurationExtension
     {
         /// <summary>
         /// Extension to confgure settings to strongly typed object

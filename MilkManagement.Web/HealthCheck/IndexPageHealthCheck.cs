@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
+﻿using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
@@ -9,7 +6,7 @@ using Microsoft.Extensions.Diagnostics.HealthChecks;
 
 namespace MilkManagement.Web.HealthCheck
 {
-    public class IndexPageHealthCheck: IHealthCheck
+	public class IndexPageHealthCheck: IHealthCheck
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
 

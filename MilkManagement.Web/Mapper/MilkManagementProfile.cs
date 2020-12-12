@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
 using MilkManagement.Core.Entities;
 using MilkManagement.Web.ViewModels;
 
 namespace MilkManagement.Web.Mapper
 {
-    public static class ObjectMapper
+	public static class ObjectMapper
     {
         private static readonly Lazy<IMapper> Lazy = new Lazy<IMapper>(() =>
         {
