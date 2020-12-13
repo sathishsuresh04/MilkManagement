@@ -1,11 +1,10 @@
 ﻿using System;
-using MilkManagement.Core.Entities.Base;
 
-namespace MilkManagement.Core.Entities
+namespace MilkManagement.Api.ViewModels
 {
-    public class Product:Entity
+	public class ProductViewModel: BaseViewModel
     {
-        public string Name { get; set; }
+        public string ProductName { get; set; }
         public string Number { get; set; }
         public string Unit { get; set; }//kg or ml or packet or styck
         public string QuantityPerUnit { get; set; }
@@ -15,7 +14,9 @@ namespace MilkManagement.Core.Entities
         public short? ReorderLevel { get; set; }
         public bool? Active { get; set; }
         public string ProductReason { get; set; }
-        public Guid CategoryId { get; set; }
-        public Category Category { get; set; }
+        public Guid? CategoryId { get; set; }
+        public CategoryViewModel Category { get; set; }
+
+      //  public string Name { get; set; }
     }
 }
