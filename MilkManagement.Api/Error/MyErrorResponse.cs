@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MilkManagement.Web.Error
+namespace MilkManagement.Api.Error
 {
 	public class MyErrorResponse
 	{

@@ -3,10 +3,10 @@ using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using MilkManagement.Web.Error;
+using MilkManagement.Api.Error;
 using System;
 
-namespace MilkManagement.Web.Controllers
+namespace MilkManagement.Api.Controllers
 {
 	[ApiController]
   [ApiExplorerSettings(IgnoreApi = true)]

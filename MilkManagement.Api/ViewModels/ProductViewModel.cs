@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MilkManagement.Web.ViewModels
+namespace MilkManagement.Api.ViewModels
 {
 	public class ProductViewModel: BaseViewModel
     {

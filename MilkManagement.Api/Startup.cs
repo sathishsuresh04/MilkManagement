@@ -19,9 +19,9 @@ using MilkManagement.Infrastructure.Logging;
 using MilkManagement.Infrastructure.Repository;
 using MilkManagement.Infrastructure.Repository.Base;
 using MilkManagement.Services.Services;
-using MilkManagement.Web.HealthCheck;
+using MilkManagement.Api.HealthCheck;
 
-namespace MilkManagement.Web
+namespace MilkManagement.Api
 {
 	public class Startup
 	{

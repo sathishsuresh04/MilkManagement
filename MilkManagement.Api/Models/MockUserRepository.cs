@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MilkManagement.Web.Models
+namespace MilkManagement.Api.Models
 {
 	public class MockUserRepository : IUserRepository
     {

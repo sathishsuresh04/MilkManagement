@@ -4,10 +4,10 @@ using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using MilkManagement.Core.Entities;
 using MilkManagement.Core.Services;
-using MilkManagement.Web.Mapper;
-using MilkManagement.Web.ViewModels;
+using MilkManagement.Api.Mapper;
+using MilkManagement.Api.ViewModels;
 
-namespace MilkManagement.Web.Controllers
+namespace MilkManagement.Api.Controllers
 {
 	[Route("api/[controller]")]
     [ApiController]

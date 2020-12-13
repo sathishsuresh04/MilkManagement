@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace MilkManagement.Web.Models
+namespace MilkManagement.Api.Models
 {
    public interface IUserRepository
     {

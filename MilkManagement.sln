@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30002.166
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MilkManagement.Web", "MilkManagement.Web\MilkManagement.Web.csproj", "{5C28849F-9433-4EDB-B1A8-66EEB11ECBA6}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MilkManagement.Core", "MilkManagement.Core\MilkManagement.Core.csproj", "{EDF36B2D-F746-4742-832C-1DAE195E4A2C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MilkManagement.Services", "MilkManagement.Services\MilkManagement.Services.csproj", "{30D7DB26-548D-445F-B2EE-5F80F6E8DBC6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MilkManagement.Infrastructure", "MilkManagement.Infrastructure\MilkManagement.Infrastructure.csproj", "{E2C12587-48F7-4CA1-A227-38C90BFDB196}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MilkManagement.Infrastructure", "MilkManagement.Infrastructure\MilkManagement.Infrastructure.csproj", "{E2C12587-48F7-4CA1-A227-38C90BFDB196}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MilkManagement.Api", "MilkManagement.Api\MilkManagement.Api.csproj", "{1D400015-ADC8-4E07-BBDB-8DEDFC0F4C6E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5C28849F-9433-4EDB-B1A8-66EEB11ECBA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5C28849F-9433-4EDB-B1A8-66EEB11ECBA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5C28849F-9433-4EDB-B1A8-66EEB11ECBA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5C28849F-9433-4EDB-B1A8-66EEB11ECBA6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EDF36B2D-F746-4742-832C-1DAE195E4A2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EDF36B2D-F746-4742-832C-1DAE195E4A2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EDF36B2D-F746-4742-832C-1DAE195E4A2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +29,10 @@ Global
 		{E2C12587-48F7-4CA1-A227-38C90BFDB196}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E2C12587-48F7-4CA1-A227-38C90BFDB196}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E2C12587-48F7-4CA1-A227-38C90BFDB196}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D400015-ADC8-4E07-BBDB-8DEDFC0F4C6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D400015-ADC8-4E07-BBDB-8DEDFC0F4C6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D400015-ADC8-4E07-BBDB-8DEDFC0F4C6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D400015-ADC8-4E07-BBDB-8DEDFC0F4C6E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

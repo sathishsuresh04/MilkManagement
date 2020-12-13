@@ -1,4 +1,4 @@
-﻿namespace MilkManagement.Web.ViewModels
+﻿namespace MilkManagement.Api.ViewModels
 {
 	public class CategoryViewModel:BaseViewModel
     {

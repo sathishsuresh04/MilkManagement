@@ -5,7 +5,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using MilkManagement.Infrastructure.Data;
 
-namespace MilkManagement.Web
+namespace MilkManagement.Api
 {
 	public class Program
     {

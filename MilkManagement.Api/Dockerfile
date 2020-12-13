@@ -7,16 +7,16 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
-COPY ["MilkManagement.Web/MilkManagement.Web.csproj", "MilkManagement.Web/"]
-RUN dotnet restore "MilkManagement.Web/MilkManagement.Web.csproj"
+COPY ["MilkManagement.Api/MilkManagement.Api.csproj", "MilkManagement.Api/"]
+RUN dotnet restore "MilkManagement.Api/MilkManagement.Api.csproj"
 COPY . .
-WORKDIR "/src/MilkManagement.Web"
-RUN dotnet build "MilkManagement.Web.csproj" -c Release -o /app/build
+WORKDIR "/src/MilkManagement.Api"
+RUN dotnet build "MilkManagement.Api.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "MilkManagement.Web.csproj" -c Release -o /app/publish
+RUN dotnet publish "MilkManagement.Api.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "MilkManagement.Web.dll"]
+ENTRYPOINT ["dotnet", "MilkManagement.Api.dll"]

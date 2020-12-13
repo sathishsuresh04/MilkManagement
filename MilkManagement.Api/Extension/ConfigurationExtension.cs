@@ -3,7 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 
-namespace MilkManagement.Web
+namespace MilkManagement.Api
 {
 	public static class ConfigurationExtension
     {

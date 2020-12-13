@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 
-namespace MilkManagement.Web.HealthCheck
+namespace MilkManagement.Api.HealthCheck
 {
 	public class IndexPageHealthCheck: IHealthCheck
     {

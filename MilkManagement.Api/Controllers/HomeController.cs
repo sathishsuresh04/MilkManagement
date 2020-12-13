@@ -4,7 +4,7 @@ using MilkManagement.Core.Configuration;
 using MilkManagement.Core.Entities;
 using MilkManagement.Core.Services;
 
-namespace MilkManagement.Web.Controllers
+namespace MilkManagement.Api.Controllers
 {
     public class HomeController : ControllerBase
     {

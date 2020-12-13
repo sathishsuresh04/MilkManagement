@@ -1,9 +1,9 @@
 ﻿using System;
 using AutoMapper;
 using MilkManagement.Core.Entities;
-using MilkManagement.Web.ViewModels;
+using MilkManagement.Api.ViewModels;
 
-namespace MilkManagement.Web.Mapper
+namespace MilkManagement.Api.Mapper
 {
 	public static class ObjectMapper
     {

@@ -1,4 +1,4 @@
-﻿namespace MilkManagement.Web.Models
+﻿namespace MilkManagement.Api.Models
 {
     public class User
     {
