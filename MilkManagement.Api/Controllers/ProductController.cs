@@ -25,9 +25,9 @@ namespace MilkManagement.Api.Controllers
         public async Task<ActionResult<IEnumerable<ProductViewModel>>> GetAllProducts()
         {
             var products = await _productService.GetProductList();
-            var artistResources =ObjectMapper.Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(products);
+            var productViewModels =ObjectMapper.Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(products);
 
-            return Ok(artistResources);
+            return Ok(productViewModels);
         }
 
 
