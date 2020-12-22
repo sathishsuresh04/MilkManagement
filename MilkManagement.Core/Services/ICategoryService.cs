@@ -4,8 +4,8 @@ using MilkManagement.Core.Entities;
 
 namespace MilkManagement.Core.Services
 {
-   public interface ICategoryService
+    public interface ICategoryService
     {
-        Task<IEnumerable<Category>> GetCategoryList();
+        Task<IEnumerable<Category>> GetCategories();
     }
 }

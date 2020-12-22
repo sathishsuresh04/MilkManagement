@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MilkManagement.Api</name>
+    </assembly>
+    <members>
+        <member name="M:MilkManagement.Api.Controllers.CategoryController.GetCategories">
+            <summary>
+            Get all categories
+            </summary>
+            <returns>return all categories</returns>
+        </member>
+        <member name="M:MilkManagement.Api.ConfigurationExtension.AddConfiguration``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration,System.String)">
+            <summary>
+            Extension to confgure settings to strongly typed object
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="services"></param>
+            <param name="configuration"></param>
+            <param name="configurationTag"></param>
+        </member>
+        <member name="M:MilkManagement.Api.ConfigurationExtension.ConfigureSwagger(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Configure Swagger open api
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:MilkManagement.Api.ConfigurationExtension.ConfigureMilkManagementServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Configure all the required services
+            </summary>
+            <param name="services"></param>
+        </member>
+    </members>
+</doc>

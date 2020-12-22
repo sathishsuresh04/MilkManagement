@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MilkManagement.Core.Entities;
@@ -9,16 +10,17 @@ using MilkManagement.Infrastructure.Repository.Base;
 
 namespace MilkManagement.Infrastructure.Repository
 {
-   public class CategoryRepository:Repository<Category>,ICategoryRepository
-    {
-        public CategoryRepository(ApplicationDbContext dbContext) : base(dbContext)
-        {
-        }
+	public class CategoryRepository : Repository<Category>, ICategoryRepository
+	{
+		public CategoryRepository(ApplicationDbContext dbContext) : base(dbContext)
+		{
+		}
 
-        public async Task<Category> GetCategoryWithProductsAsync(Guid categoryId)
-        {
-            var spec = new CategoryWithProductsSpecification(categoryId);
-            return (await GetAsync(spec)).FirstOrDefault();
-        }
-    }
+		public async Task<Category> GetCategoryWithProductsAsync(Guid categoryId)
+		{
+			var spec = new CategoryWithProductsSpecification(categoryId);
+			IReadOnlyList<Category> readOnlyLists = await GetAsync(spec);
+			return readOnlyLists.FirstOrDefault();
+		}
+	}
 }

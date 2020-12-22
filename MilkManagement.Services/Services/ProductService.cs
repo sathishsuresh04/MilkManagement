@@ -8,23 +8,39 @@ using MilkManagement.Core.Services;
 
 namespace MilkManagement.Services.Services
 {
- public  class ProductService:IProductService
- {
-     // TODO : add validation , authorization, logging, exception handling etc. -- cross cutting activities in here.
+    public class ProductService : IProductService
+    {
+        // TODO : add validation , authorization, logging, exception handling etc. -- cross cutting activities in here.
         private readonly IProductRepository _productRepository;
-     private readonly IAppLogger<ProductService> _logger;
+        private readonly IAppLogger<ProductService> _logger;
 
-     public ProductService(IProductRepository productRepository,IAppLogger<ProductService> logger)
-     {
-         _productRepository = productRepository ?? throw new ArgumentNullException(nameof(productRepository));
-         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+        public ProductService(IProductRepository productRepository, IAppLogger<ProductService> logger)
+        {
+            _productRepository = productRepository ?? throw new ArgumentNullException(nameof(productRepository));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+        }
+        /// <summary>
+        /// Get all products
+        /// </summary>
+        /// <returns>List of products</returns>
+        public async Task<IEnumerable<Product>> GetProducts()
+        {
+            return await _productRepository.GetAllAsync();
         }
 
-     public async Task<IEnumerable<Product>> GetProductList()
+        /// <summary>
+        /// Get all products and its categories
+        /// </summary>
+        /// <returns>List of products and its categories</returns>
+        public async Task<IEnumerable<Product>> GetProductsWithCategory()
         {
             return await _productRepository.GetProductListAsync();
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="productId"></param>
+        /// <returns></returns>
         public async Task<Product> GetProductById(Guid productId)
         {
             return await _productRepository.GetByIdAsync(productId);
@@ -43,7 +59,7 @@ namespace MilkManagement.Services.Services
         public async Task<Product> Create(Product product)
         {
             await ValidateProductIfExist(product);
-            var newproduct=await _productRepository.AddAsync(product);
+            var newproduct = await _productRepository.AddAsync(product);
             _logger.LogInformation("Entity successfully added - Product Service");
             return newproduct;
         }
@@ -54,7 +70,7 @@ namespace MilkManagement.Services.Services
             {
                 await ValidateProductIfExist(product);
             }
-            return   await  _productRepository.AddRangeAsync(products);
+            return await _productRepository.AddRangeAsync(products);
         }
 
         public async Task Update(Product product)

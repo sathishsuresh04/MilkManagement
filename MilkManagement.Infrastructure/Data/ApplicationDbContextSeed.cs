@@ -49,8 +49,9 @@ namespace MilkManagement.Infrastructure.Data
         {
             return new List<Category>
             {
-                new Category { Name = "Phone"},
-                new Category { Name = "TV"}
+                new Category { Name = "Dried"},
+                new Category { Name = "Liquid"},
+                new Category { Name = "SemiLiquid"}
             };
         }
 

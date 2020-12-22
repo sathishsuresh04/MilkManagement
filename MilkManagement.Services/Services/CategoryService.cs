@@ -8,7 +8,7 @@ using MilkManagement.Core.Services;
 
 namespace MilkManagement.Services.Services
 {
- public class CategoryService:ICategoryService
+    public class CategoryService : ICategoryService
     {
         private readonly ICategoryRepository _categoryRepository;
         private readonly IAppLogger<CategoryService> _logger;
@@ -19,7 +19,7 @@ namespace MilkManagement.Services.Services
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
-        public async Task<IEnumerable<Category>> GetCategoryList()
+        public async Task<IEnumerable<Category>> GetCategories()
         {
             _logger.LogInformation("Get information of product");
             return await _categoryRepository.GetAllAsync();

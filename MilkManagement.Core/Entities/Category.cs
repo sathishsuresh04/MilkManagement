@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using MilkManagement.Core.Entities.Base;
 
 namespace MilkManagement.Core.Entities
 {
-    public class Category:Entity
+    public class Category : Entity
     {
         public Category()
         {
@@ -11,8 +12,7 @@ namespace MilkManagement.Core.Entities
         }
         public string Name { get; set; }
         public string Description { get; set; }
-        public  bool? Active { get; set; }
+        public bool? Active { get; set; }
         public ICollection<Product> Products { get; private set; }
-
     }
 }

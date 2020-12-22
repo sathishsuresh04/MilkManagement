@@ -9,7 +9,6 @@ namespace MilkManagement.Core.Specifications
             : base(p => p.Name.ToLower().Contains(productName.ToLower()))
         {
             AddInclude(p => p.Category);
-           // AddInclude($"{nameof(User.Recipes)}.{nameof(Recipe.Ingredients)}");
         }
         public ProductWithCategorySpecification() : base(null)
         {

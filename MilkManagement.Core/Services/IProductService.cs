@@ -5,9 +5,10 @@ using MilkManagement.Core.Entities;
 
 namespace MilkManagement.Core.Services
 {
- public  interface IProductService
+    public interface IProductService
     {
-        Task<IEnumerable<Product>> GetProductList();
+        Task<IEnumerable<Product>> GetProducts();
+        Task<IEnumerable<Product>> GetProductsWithCategory();
         Task<Product> GetProductById(Guid productId);
         Task<IEnumerable<Product>> GetProductByName(string productName);
         Task<IEnumerable<Product>> GetProductByCategory(Guid categoryId);
@@ -16,11 +17,5 @@ namespace MilkManagement.Core.Services
         Task Update(Product productModel);
         Task Delete(Product productModel);
         Task Delete(ICollection<Product> products);
-
-        //Task<IEnumerable<Product>> GetAllProducts();
-        //Task<Product> GetProductById(Guid id);
-        //Task<Product> CreateProduct(Product newProduct);
-        //Task UpdateProduct(Product productToBeUpdated, Product product);
-        //Task DeleteProduct(Product product);
     }
 }

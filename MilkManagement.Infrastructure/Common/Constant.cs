@@ -1,9 +1,9 @@
 ﻿namespace MilkManagement.Infrastructure.Common
 {
-  public static class Constant
+    public sealed class Constant
     {
         #region Database
-
+        public const string SqlgetDate = "getdate()";
         #region Schemas
 
         public const string SchemaCore = "core";

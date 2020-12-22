@@ -6,24 +6,30 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using MilkManagement.Core.Entities.Base;
 using MilkManagement.Infrastructure.Data;
- using   MilkManagement.Core.Repositories.Base;
+using MilkManagement.Core.Repositories.Base;
 using MilkManagement.Core.Specifications.Base;
 
 namespace MilkManagement.Infrastructure.Repository.Base
 {
-   public class Repository<T>: IRepository<T> where T:Entity
+    public class Repository<T> : IRepository<T> where T : Entity
     {
         protected readonly ApplicationDbContext DbContext;
-
+        /// <summary>
+        /// constructor takes context
+        /// </summary>
+        /// <param name="dbContext"></param>
         public Repository(ApplicationDbContext dbContext)
         {
             DbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
         }
+        /// <summary>
+        /// Get all items
+        /// </summary>
+        /// <returns>entity</returns>
         public async Task<IReadOnlyList<T>> GetAllAsync()
         {
             return await DbContext.Set<T>().ToListAsync();
         }
-
         public async Task<IReadOnlyList<T>> GetAsync(Expression<Func<T, bool>> predicate)
         {
             return await DbContext.Set<T>().Where(predicate).ToListAsync();
@@ -58,7 +64,7 @@ namespace MilkManagement.Infrastructure.Repository.Base
             return await query.ToListAsync();
         }
 
-        public async Task<IReadOnlyList<T>> GetAsync(ISpecification<T> spec=null)
+        public async Task<IReadOnlyList<T>> GetAsync(ISpecification<T> spec = null)
         {
             return await ApplySpecification(spec).ToListAsync();
         }
@@ -77,24 +83,10 @@ namespace MilkManagement.Infrastructure.Repository.Base
 
         public async Task<IEnumerable<T>> AddRangeAsync(IEnumerable<T> entities)
         {
-          //  var addRangeAsync = entities.ToList();
             await DbContext.Set<T>().AddRangeAsync(entities);
             await DbContext.SaveChangesAsync();
             return entities as IList<T>;
         }
-
-        //public async Task<List<T>> AddRangeAsync(IEnumerable<T> entities)
-        //{
-        //      await DbContext.Set<T>().AddRangeAsync(entities);
-        //      await DbContext.SaveChangesAsync();
-        //      return entities;
-        //}
-
-        //public async void AddRangeAsync(IEnumerable<T> entities)
-        //{
-        //    await DbContext.Set<T>().AddRangeAsync(entities);
-        //    await DbContext.SaveChangesAsync();
-        //}
 
         public async Task UpdateAsync(T entity)
         {
@@ -114,9 +106,9 @@ namespace MilkManagement.Infrastructure.Repository.Base
             await DbContext.SaveChangesAsync();
         }
 
-        public async Task <bool> ContainsAsync(ISpecification<T> specification = null)
+        public async Task<bool> ContainsAsync(ISpecification<T> specification = null)
         {
-            return await   CountAsync(specification) > 0;
+            return await CountAsync(specification) > 0;
         }
 
         public async Task<bool> ContainsAsync(Expression<Func<T, bool>> predicate)
@@ -139,6 +131,6 @@ namespace MilkManagement.Infrastructure.Repository.Base
             return SpecificationEvaluator<T>.GetQuery(DbContext.Set<T>().AsQueryable(), spec);
         }
 
-      
+
     }
 }

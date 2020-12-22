@@ -6,29 +6,50 @@ using MilkManagement.Core.Entities;
 using MilkManagement.Core.Services;
 using MilkManagement.Api.Mapper;
 using MilkManagement.Api.ViewModels;
+using System;
 
 namespace MilkManagement.Api.Controllers
 {
-	[Route("api/[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class ProductController : ControllerBase
     {
         private readonly IProductService _productService;
-        private readonly IMapper _mapper;
 
-        public ProductController(IProductService productService,IMapper mapper)
+        public ProductController(IProductService productService)
         {
             _productService = productService;
-            _mapper = mapper;
         }
+
         [HttpGet("")]
-        public async Task<ActionResult<IEnumerable<ProductViewModel>>> GetAllProducts()
+        public async Task<ActionResult> GetProducts()
         {
-            var products = await _productService.GetProductList();
-            var productViewModels =ObjectMapper.Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(products);
+
+            var products = await _productService.GetProducts();
+            var productViewModels = ObjectMapper.Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(products);
 
             return Ok(productViewModels);
         }
+
+        [HttpGet("productswithcategory")]
+        public async Task<ActionResult> GetProductsWithCategory()
+        {
+
+            var products = await _productService.GetProductsWithCategory();
+            var productViewModels = ObjectMapper.Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(products);
+
+            return Ok(productViewModels);
+        }
+        [HttpGet("id")]
+        public async Task<ActionResult> Getproductbyid(Guid id)
+        {
+
+            var products = await _productService.GetProductById(id);
+            if (products == null) return NotFound();
+            var productViewModels = ObjectMapper.Mapper.Map<Product, ProductViewModel>(products);
+            return Ok(productViewModels);
+        }
+
 
 
 

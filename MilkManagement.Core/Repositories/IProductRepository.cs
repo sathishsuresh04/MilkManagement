@@ -6,7 +6,7 @@ using MilkManagement.Core.Repositories.Base;
 
 namespace MilkManagement.Core.Repositories
 {
-  public  interface IProductRepository:IRepository<Product>
+    public interface IProductRepository : IRepository<Product>
     {
         Task<IEnumerable<Product>> GetProductListAsync();
         Task<IEnumerable<Product>> GetProductByNameAsync(string productName);

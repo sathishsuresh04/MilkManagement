@@ -21,7 +21,7 @@ namespace MilkManagement.Api.HealthCheck
 
             var client = new HttpClient();
             var response = await client.GetAsync(myUrl, cancellationToken);
-            var pageContents = await response.Content.ReadAsStringAsync();
+            var pageContents = await response.Content.ReadAsStringAsync(cancellationToken);
             return pageContents.Contains("product1") ? HealthCheckResult.Healthy("The check indicates a healthy result.") : HealthCheckResult.Unhealthy("The check indicates an unhealthy result.");
         }
     }

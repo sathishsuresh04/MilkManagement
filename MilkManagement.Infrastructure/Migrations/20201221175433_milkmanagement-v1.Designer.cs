@@ -10,16 +10,16 @@ using MilkManagement.Infrastructure.Data;
 namespace MilkManagement.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200508194017_IntialModel")]
-    partial class IntialModel
+    [Migration("20201221175433_milkmanagement-v1")]
+    partial class milkmanagementv1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.3")
+                .UseIdentityColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("ProductVersion", "5.0.1");
 
             modelBuilder.Entity("MilkManagement.Core.Entities.Category", b =>
                 {
@@ -44,8 +44,7 @@ namespace MilkManagement.Infrastructure.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .HasColumnType("varchar(250)");
 
                     b.Property<Guid>("UpdatedBy")
                         .HasColumnType("uniqueidentifier");
@@ -55,7 +54,7 @@ namespace MilkManagement.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Category","core");
+                    b.ToTable("Category", "core");
                 });
 
             modelBuilder.Entity("MilkManagement.Core.Entities.MilkPriceType", b =>
@@ -78,8 +77,8 @@ namespace MilkManagement.Infrastructure.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<Guid>("UpdatedBy")
                         .HasColumnType("uniqueidentifier");
@@ -89,7 +88,7 @@ namespace MilkManagement.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("MilkPriceType","core");
+                    b.ToTable("MilkPriceType", "core");
                 });
 
             modelBuilder.Entity("MilkManagement.Core.Entities.Product", b =>
@@ -115,13 +114,13 @@ namespace MilkManagement.Infrastructure.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Number")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("ProductReason")
                         .HasColumnType("nvarchar(max)");
@@ -136,7 +135,7 @@ namespace MilkManagement.Infrastructure.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal?>("UnitPrice")
-                        .HasColumnType("decimal(5,4)");
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<short?>("UnitsInStock")
                         .HasColumnType("smallint");
@@ -154,7 +153,7 @@ namespace MilkManagement.Infrastructure.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Product","core");
+                    b.ToTable("Product", "core");
                 });
 
             modelBuilder.Entity("MilkManagement.Core.Entities.Product", b =>
@@ -164,6 +163,13 @@ namespace MilkManagement.Infrastructure.Migrations
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("MilkManagement.Core.Entities.Category", b =>
+                {
+                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }

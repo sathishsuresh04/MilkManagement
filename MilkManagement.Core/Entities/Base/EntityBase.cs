@@ -1,7 +1,10 @@
-﻿namespace MilkManagement.Core.Entities.Base
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace MilkManagement.Core.Entities.Base
 {
     public abstract class EntityBase<TId> : IEntityBase<TId>
     {
+        [Column(Order = 1)]
         public virtual TId Id { get; protected set; }
 
         int? _requestedHashCode;
