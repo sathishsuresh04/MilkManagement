@@ -14,8 +14,8 @@ namespace MilkManagement.Infrastructure.Data.Configurations
             builder.Property(x => x.Id).ValueGeneratedOnAdd();
             builder.Property(x => x.Name).IsRequired().HasColumnType("varchar(250)");
             builder.Property(x => x.Active).IsRequired().HasDefaultValue(true);
-            builder.Property(x => x.CreatedDate).HasDefaultValueSql(Constant.SqlgetDate);
-            builder.Property(x => x.UpdatedDate).HasComputedColumnSql(Constant.SqlgetDate);
+            builder.Property(x => x.CreatedDate).IsRequired().HasDefaultValueSql(Constant.SqlgetDate);
+            builder.Property(x => x.UpdatedDate).IsRequired().HasComputedColumnSql(Constant.SqlgetDate);
 
             builder.HasMany(c => c.Products)
                     .WithOne(p => p.Category)

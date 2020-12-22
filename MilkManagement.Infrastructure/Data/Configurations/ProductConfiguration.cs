@@ -15,8 +15,8 @@ namespace MilkManagement.Infrastructure.Data.Configurations
             builder.Property(x => x.Number).IsRequired().HasMaxLength(50);
             builder.Property(x => x.UnitPrice).HasColumnType("decimal(18,2)");
             builder.Property(x => x.Active).IsRequired().HasDefaultValue(true);
-            builder.Property(x => x.CreatedDate).HasDefaultValueSql(Constant.SqlgetDate);
-            builder.Property(x => x.UpdatedDate).HasComputedColumnSql(Constant.SqlgetDate);
+            builder.Property(x => x.CreatedDate).IsRequired().HasDefaultValueSql(Constant.SqlgetDate);
+            builder.Property(x => x.UpdatedDate).IsRequired().HasComputedColumnSql(Constant.SqlgetDate);
         }
     }
 }
